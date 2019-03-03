@@ -51,11 +51,13 @@ router.beforeEach((to, from, next) => {
     store.dispatch('checkLogin').then((isLogin)=> {
       if (!store.getters.isLogin) {
         next({
-          path: '/login',
+          path: '/',
           query: {redirect: to.fullPath}
         })
       } else {
-        next()
+        next(
+
+        )
       }
     })
   } else {

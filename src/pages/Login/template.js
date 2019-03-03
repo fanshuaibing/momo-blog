@@ -8,14 +8,23 @@ export default {
     }
   },
   methods:{
-    ...mapActions(['login']),
+    ...mapActions(['login','checkLogin','logout']),
 
     onLogin(){
       this.login({username: this.username, password:this.password})
         .then(()=>{
-          this.$router.push({path: this.$route.query.redirect || '/'})
+          this.$router.push({path: this.$route.query.redirect || '/my'})
         })
 
     }
+  },
+  created(){
+    this.checkLogin().then(res=>{
+      if (res){
+        this.logout()
+        this.$router.push({path: this.$route.query.redirect || '/'})
+      }
+    })
   }
+
 }
