@@ -1,4 +1,4 @@
-##　默默博客
+## 默默博客
 ### 技术栈
 #### Vue.js 技术栈，涉及vue-cli、vue-router、Vuex、Axios、Webpack、ES6、element-ui**
 
