@@ -19,12 +19,12 @@ export default {
 
     }
   },
-  created(){
-    this.checkLogin().then(res=>{
-      if(res){
-        this.$router.push('/')
-      }
-    })
-  }
+  // created(){
+  //   this.checkLogin().then(res=>{
+  //     if(res){
+  //       this.$router.push('/')
+  //     }
+  //   })
+  // }
 
 }
