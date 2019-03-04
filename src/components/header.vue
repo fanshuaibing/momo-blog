@@ -2,13 +2,13 @@
   <header :class="{login: isLogin, 'no-login': !isLogin}">
     <template v-if="!isLogin">
       <h1><router-link to="/">默默博客</router-link></h1>
-      <p>精品博客汇聚</p>
+      <p>始于笔下</p>
       <div class="btns">
         <router-link to="/login">
-          <el-button >立即登录</el-button>
+          <button>立即登录</button>
         </router-link>
         <router-link to="/register">
-          <el-button>注册账号</el-button>
+          <button>注册账号</button>
         </router-link>
       </div>
     </template>
@@ -30,12 +30,15 @@
 
   import auth from '@/api/auth'
   window.auth = auth
+  // import $ from 'jQuery'
 
   import { mapGetters, mapActions } from 'vuex'
 
   export default {
     data() {
-      return {}
+      return {
+        active:false
+      }
     },
 
     computed: {
@@ -57,10 +60,18 @@
       onLogout() {
         this.logout().then(()=>{
           this.$router.push('/')
-        }
-
-        )
-      }
+        })
+      },
+      // activeButton(e){
+      //   let buttons = document.querySelectorAll('button')
+      //   console.log(buttons);
+      //   for(let i=0;i<buttons.length;i++){
+      //     buttons[i].classList.remove('active')
+      //   }
+      //   console.log(e.current);
+      //   let activeBtn = $(e.currentTarget)
+      //   activeBtn.addClass('active')
+      // }
     }
 
   }
@@ -79,7 +90,7 @@
 
     h1 {
       font-size: 40px;
-      margin: 60px 0 0 0;
+      margin: 20px 0 0 0;
       text-transform: uppercase;
 
     }
@@ -90,7 +101,9 @@
     }
 
     p {
-      margin: 15px 0 0 0;
+      font-size: 24px;
+      font-family: cursive;
+      margin: 10px 0 0 0;
       color: #fff;
     }
 
@@ -99,8 +112,24 @@
     }
 
     button {
-      margin: 20px 5px 0;
-      color: white;
+      display: inline-block;
+      line-height: 1;
+      cursor: pointer;
+      background: #333;
+      margin: 5px 15px;
+      border: 1px solid #dcdfe6;
+      color: #dcdfe6;
+      outline: 0;
+      -webkit-appearance: none;
+      text-align: center;
+      box-sizing: border-box;
+      padding: 12px 20px;
+      font-size: 14px;
+      border-radius: 4px;
+      &:focus{
+        color: #333;
+        background: white;
+      }
     }
   }
 

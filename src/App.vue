@@ -2,10 +2,10 @@
   <div id="app">
     <Header id="header"></Header>
     <main id="main">
-      <router-view/>   
+      <router-view/>
     </main>
     <Footer id="footer"></Footer>
-     
+
   </div>
 </template>
 
@@ -20,6 +20,9 @@ export default {
   components: {
     Header,
     Footer
+  },
+  created(){
+    console.log(this.$route.path);
   }
 }
 </script>

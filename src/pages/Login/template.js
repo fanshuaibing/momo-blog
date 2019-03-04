@@ -1,4 +1,5 @@
 import {mapActions} from "vuex";
+import blog from "../../api/blog";
 
 export default {
   data () {
@@ -13,16 +14,15 @@ export default {
     onLogin(){
       this.login({username: this.username, password:this.password})
         .then(()=>{
-          this.$router.push({path: this.$route.query.redirect || '/my'})
+          this.$router.push({path: this.$route.query.redirect || '/'})
         })
 
     }
   },
   created(){
     this.checkLogin().then(res=>{
-      if (res){
-        this.logout()
-        this.$router.push({path: this.$route.query.redirect || '/'})
+      if(res){
+        this.$router.push('/')
       }
     })
   }
